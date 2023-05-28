@@ -4,6 +4,7 @@ import { getAlbumDetails } from "@/helpers/fetch";
 import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Loading from "../loading";
 
 export default function Album() {
   const searchParams = useSearchParams();
@@ -14,7 +15,7 @@ export default function Album() {
     queryFn: () => getAlbumDetails(id),
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (isError) return <p>Something went wrong</p>;
 
   return <div>{data.full_title}</div>;

@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Music World",
-  description: "Music that heals the world",
+  description: "Where words fail, music speaks.",
   icons: "/icon.png",
 };
 
