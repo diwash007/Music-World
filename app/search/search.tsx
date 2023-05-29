@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Loading from "../loading";
+import { addAsync } from "../slices/albumsSlice";
+import { useDispatch } from "react-redux";
 
 export default function Search() {
   const searchParams = useSearchParams();
@@ -12,6 +14,7 @@ export default function Search() {
   const [searchQuery, setSearchQuery] = useState(query);
   const [albums, setAlbums]: any[] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     query && getAlbums();
@@ -19,7 +22,9 @@ export default function Search() {
 
   const getAlbums = async () => {
     setIsLoading(true);
-    setAlbums(await searchAlbums(searchQuery!));
+    const data = await searchAlbums(searchQuery!);
+    setAlbums(data);
+    dispatch(addAsync(data));
     setIsLoading(false);
   };
 
@@ -79,4 +84,7 @@ export default function Search() {
       )}
     </div>
   );
+}
+function dispatch(arg0: (dispatch: any) => void) {
+  throw new Error("Function not implemented.");
 }

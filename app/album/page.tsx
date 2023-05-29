@@ -1,15 +1,15 @@
 "use client";
 
-import { getAlbumDetails, getSongs } from "@/helpers/fetch";
+import { getSongs } from "@/helpers/fetch";
 import { useSearchParams } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
-import Loading from "../loading";
 import { FaHeart } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaPlayCircle } from "react-icons/fa";
 import Player from "./Player";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 export default function Album() {
   const [songs, setSongs]: any[] = useState([]);
@@ -18,26 +18,18 @@ export default function Album() {
   const id = searchParams.get("id");
   const audioRef = useRef(typeof Audio !== "undefined" && new Audio());
 
+  const albums = useSelector((state: RootState) => state.albums.all);
+
+  const album = albums.find((a) => a.id.toString() === id);
+
   useEffect(() => {
     audioRef.current = new Audio("/song.mp3");
   }, []);
-
-  const {
-    isLoading,
-    isError,
-    data: album,
-  } = useQuery({
-    queryKey: [id],
-    queryFn: () => getAlbumDetails(id),
-  });
 
   useEffect(() => {
     const fetchSongs = async () => setSongs(await getSongs(id));
     fetchSongs();
   }, []);
-
-  if (isLoading) return <Loading />;
-  if (isError) return <p>Something went wrong</p>;
 
   const handlePlay = () => {
     setIsPlaying((prev) => !prev);
@@ -97,7 +89,10 @@ export default function Album() {
         <tbody>
           {songs!.map((song: any, index: any) => {
             return (
-              <tr className="bg-white border-b hover:bg-primary/25" key={song.id}>
+              <tr
+                className="bg-white border-b hover:bg-primary/25"
+                key={song.id}
+              >
                 <td className="px-6 py-4 hidden md:table-cell">{index + 1}</td>
                 <td className="px-6 py-4 items-center flex gap-2">
                   <Image
