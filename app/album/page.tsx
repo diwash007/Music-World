@@ -9,6 +9,7 @@ import { FaHeart } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaPlayCircle } from "react-icons/fa";
 import Player from "./Player";
+import Image from "next/image";
 
 export default function Album() {
   const [songs, setSongs]: any[] = useState([]);
@@ -47,7 +48,11 @@ export default function Album() {
   return (
     <div className="py-5">
       <div className="flex flex-col sm:flex-row justify-start items-start sm:items-end gap-5 mb-10">
-        <img src={album.cover_art_thumbnail_url} className="block rounded-md" />
+        <Image
+          src={album.cover_art_thumbnail_url}
+          alt={album.name}
+          className="block rounded-md"
+        />
         <div className="space-y-1">
           <p className="text-2xl font-bold">{album.name}</p>
           <p className="text-xl font-semibold text-gray-700">
@@ -94,10 +99,11 @@ export default function Album() {
               <tr className="bg-white border-b  " key={song.id}>
                 <td className="px-6 py-4 hidden md:table-cell">{index + 1}</td>
                 <td className="px-6 py-4">
-                  <img
+                  <Image
                     src={song.song_art_image_thumbnail_url}
+                    alt={song.title}
                     className="w-16"
-                  ></img>
+                  ></Image>
                 </td>
                 <td className="px-6 py-4">{song.title}</td>
                 <td className="px-6 py-4">{song.artist_names}</td>

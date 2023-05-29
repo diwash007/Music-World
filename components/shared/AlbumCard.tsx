@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,8 +14,9 @@ function AlbumCard({ album }: { album: any }) {
       className="group w-60 hover:shadow-xl overflow-hidden"
     >
       <div className="overflow-hidden">
-        <img
+        <Image
           src={album.cover_art_thumbnail_url}
+          alt={album.name}
           className="w-full h-60 group-hover:scale-150 transition-transform duration-[5000ms] ease-in-out"
         />
       </div>
