@@ -10,7 +10,7 @@ function AlbumCard({ album }: { album: any }) {
           id: album.id,
         },
       }}
-      className="group w-80 hover:shadow-xl overflow-hidden"
+      className="group w-60 hover:shadow-xl overflow-hidden"
     >
       <div className="overflow-hidden">
         <img
@@ -18,7 +18,7 @@ function AlbumCard({ album }: { album: any }) {
           className="w-full group-hover:scale-150 transition-transform duration-[5000ms] ease-in-out"
         />
       </div>
-      <p className="p-2">{album.artist.name}</p>
+      <p className="px-2 line-clamp-1">{album.artist.name}</p>
     </Link>
   );
 }
