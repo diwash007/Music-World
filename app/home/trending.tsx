@@ -18,5 +18,5 @@ export function Trending({ albums }: { albums: any[] }) {
   if (isLoading) return <Loading />;
   if (isError) return <p>Something went wrong</p>;
 
-  return <Albums albums={data} title="Trending Albums" />;
+  return <Albums albums={data} title="Trending Albums 🔥" />;
 }
