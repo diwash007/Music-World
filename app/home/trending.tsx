@@ -3,7 +3,7 @@
 import { getTrendingAlbums } from "@/helpers/fetch";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import Loading from "./loading";
+import Loading from "../loading";
 import Albums from "@/components/shared/Albums";
 
 export function Trending({ albums }: { albums: any[] }) {
