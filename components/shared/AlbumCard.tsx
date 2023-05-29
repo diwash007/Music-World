@@ -17,6 +17,8 @@ function AlbumCard({ album }: { album: any }) {
         <Image
           src={album.cover_art_thumbnail_url}
           alt={album.name}
+          width={100}
+          height={100}
           className="w-full h-60 group-hover:scale-150 transition-transform duration-[5000ms] ease-in-out"
         />
       </div>

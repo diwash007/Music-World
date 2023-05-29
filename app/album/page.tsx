@@ -51,6 +51,8 @@ export default function Album() {
         <Image
           src={album.cover_art_thumbnail_url}
           alt={album.name}
+          width={300}
+          height={300}
           className="block rounded-md"
         />
         <div className="space-y-1">
@@ -102,6 +104,8 @@ export default function Album() {
                   <Image
                     src={song.song_art_image_thumbnail_url}
                     alt={song.title}
+                    width={64}
+                    height={64}
                     className="w-16"
                   ></Image>
                 </td>
