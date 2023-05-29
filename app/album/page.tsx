@@ -85,7 +85,6 @@ export default function Album() {
             <th scope="col" className="px-6 py-3 hidden md:table-cell">
               #
             </th>
-            <th scope="col" className="px-6 py-3"></th>
             <th scope="col" className="px-6 py-3">
               Title
             </th>
@@ -98,18 +97,17 @@ export default function Album() {
         <tbody>
           {songs!.map((song: any, index: any) => {
             return (
-              <tr className="bg-white border-b  " key={song.id}>
+              <tr className="bg-white border-b hover:bg-primary/25" key={song.id}>
                 <td className="px-6 py-4 hidden md:table-cell">{index + 1}</td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 items-center flex gap-2">
                   <Image
                     src={song.song_art_image_thumbnail_url}
                     alt={song.title}
-                    width={64}
-                    height={64}
-                    className="w-16"
+                    width={50}
+                    height={50}
                   ></Image>
+                  {song.title}
                 </td>
-                <td className="px-6 py-4">{song.title}</td>
                 <td className="px-6 py-4">{song.artist_names}</td>
                 <td className="px-6 py-4">
                   <FaPlayCircle
