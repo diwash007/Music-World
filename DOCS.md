@@ -1,7 +1,7 @@
 <body>
   <h1>MUSIC WORLD</h1>
   <p>Where words fail, music speaks.</p>
-  <p><a href="https://music-op.vercel.app/">https://music-op.vercel.app/</a>
+  <p><a href="https://music-worlds.vercel.app/">https://music-worlds.vercel.app/</a>
 </p>
   <h2>Table of Contents</h2>
   <ul>
@@ -19,7 +19,7 @@ npm install</code></pre>
   <h2>Usage</h2>
   <p>Add environment variables in .env.local file</p>
   <pre><code>
-  NEXT_PUBLIC_BASE_URL=
+  NEXT_PUBLIC_BASE_URL=https://genius-song-lyrics1.p.rapidapi.com
   NEXT_PUBLIC_API_HOST=
   NEXT_PUBLIC_API_KEY=
   </pre></code>
