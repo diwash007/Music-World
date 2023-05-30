@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Player from "./Player";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../redux/store";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../loading";
 import AlbumHero from "./AlbumHero";

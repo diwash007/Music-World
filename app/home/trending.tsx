@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import Loading from "../loading";
 import Albums from "@/components/shared/Albums";
 import { useDispatch, useSelector } from "react-redux";
-import { addTrendingAsync } from "../slices/albumsSlice";
-import { RootState } from "../store";
+import { addTrendingAsync } from "../redux/albumsSlice";
+import { RootState } from "../redux/store";
 
 export function Trending() {
   const [page, setPage] = useState(1);

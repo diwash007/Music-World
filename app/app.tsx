@@ -2,7 +2,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import Providers from "./providers";
-import { store } from "./store";
+import { store } from "./redux/store";
 import Navbar from "@/components/shared/Navbar";
 
 function App({ children }) {

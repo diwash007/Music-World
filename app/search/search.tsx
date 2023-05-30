@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Loading from "../loading";
-import { addAsync } from "../slices/albumsSlice";
+import { addAsync } from "../redux/albumsSlice";
 import { useDispatch } from "react-redux";
 
 export default function Search() {
