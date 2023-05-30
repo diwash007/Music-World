@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 
-function AlbumHero({ album, handlePlay }) {
+function AlbumHero({ album, handlePlay, isPlaying }) {
   return (
     <div className="flex flex-col sm:flex-row justify-start items-start sm:items-end gap-5 mb-10">
       <Image
@@ -26,7 +26,7 @@ function AlbumHero({ album, handlePlay }) {
             className="bg-primary rounded-full px-10 py-2 text-white font-bold hover:bg-secondary"
             onClick={handlePlay}
           >
-            Play All
+            {isPlaying ? "Pause" : "Play All"}
           </button>
           <FaHeart
             size={30}

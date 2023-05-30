@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaPlayCircle } from "react-icons/fa";
 import { getSongs } from "@/helpers/fetch";
+import Loading from "../loading";
 
 function TrackList({ id, handlePlay }) {
   const [songs, setSongs] = useState([]);
@@ -10,6 +11,8 @@ function TrackList({ id, handlePlay }) {
     const fetchSongs = async () => setSongs(await getSongs(id));
     fetchSongs();
   }, []);
+
+  if (songs.length < 1) return <Loading />;
 
   return (
     <>

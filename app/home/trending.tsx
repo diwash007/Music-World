@@ -15,20 +15,17 @@ export function Trending() {
 
   const albums = useSelector((state: RootState) => state.albums.trending);
 
-  const { isLoading, isError, data } = useQuery({
+  const { isError, data } = useQuery({
     queryKey: [page],
     queryFn: () => getTrendingAlbums(page),
-    initialData: [],
+    initialData: albums,
     keepPreviousData: true,
   });
-  
-  useEffect(() => {
-    dispatch(addTrendingAsync(data));
-  }, [data]);
-  
+
+  dispatch(addTrendingAsync(data));
+
   if (data.length < 1) return <Loading />;
   if (isError) return <p>Something went wrong</p>;
-
 
   return <Albums albums={data} title="Trending Albums 🔥" />;
 }

@@ -19,7 +19,7 @@ function AlbumCard({ album }) {
           alt={album.name}
           width={100}
           height={100}
-          className="w-full h-60 group-hover:scale-150 transition-transform duration-[5000ms] ease-in-out"
+          className="rounded-md w-full h-60 group-hover:scale-150 transition-transform duration-[5000ms] ease-in-out"
         />
       </div>
       <p className="px-2 line-clamp-1">{album.artist.name}</p>

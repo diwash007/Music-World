@@ -31,6 +31,7 @@ export default function Album() {
 
   useEffect(() => {
     audioRef.current = new Audio("/song.mp3");
+    return () => audioRef.current.pause();
   }, []);
 
   const handlePlay = () => {
@@ -45,7 +46,13 @@ export default function Album() {
 
   return (
     <div className="py-5">
-      {album && <AlbumHero album={album} handlePlay={handlePlay} />}
+      {album && (
+        <AlbumHero
+          album={album}
+          handlePlay={handlePlay}
+          isPlaying={isPlaying}
+        />
+      )}
       <TrackList id={id} handlePlay={handlePlay} />
       <Player isPlaying={isPlaying} handlePlay={handlePlay} />
     </div>

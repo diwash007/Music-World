@@ -25,13 +25,13 @@ export const { addAlbums, addTrendingAlbums } = albumsSlice.actions;
 export const addTrendingAsync = (albums) => (dispatch) => {
   setTimeout(() => {
     dispatch(addTrendingAlbums(albums));
-  }, 1000);
+  }, 0);
 };
 
 export const addAsync = (albums) => (dispatch) => {
   setTimeout(() => {
     dispatch(addAlbums(albums));
-  }, 1000);
+  }, 0);
 };
 
 export default albumsSlice.reducer;
