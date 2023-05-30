@@ -17,8 +17,8 @@ export async function getTrendingAlbums(page: number) {
   try {
     const response = await axios.request(options);
     let data = await response.data;
-    let albums: any[] = [];
-    data.chart_items.forEach((album: any) => {
+    let albums = [];
+    data.chart_items.forEach((album) => {
       albums.push(album.item);
     });
     return albums;
@@ -61,8 +61,8 @@ export async function getSongs(id: string | null) {
   try {
     const response = await axios.request(options);
     const data = await response.data;
-    let songs: any[] = [];
-    data.album_appearances.forEach((item: any) => songs.push(item.song));
+    let songs = [];
+    data.album_appearances.forEach((item) => songs.push(item.song));
     return songs;
   } catch (err) {
     console.log(err);
@@ -88,9 +88,9 @@ export async function searchAlbums(query: string) {
   try {
     const response = await axios.request(options);
     let data = await response.data;
-    data = data.sections.filter((item: any) => item.type === "album");
-    let albums: any[] = [];
-    data[0].hits.forEach((hit: any) => {
+    data = data.sections.filter((item) => item.type === "album");
+    let albums = [];
+    data[0].hits.forEach((hit) => {
       albums.push(hit.result);
     });
     return albums;

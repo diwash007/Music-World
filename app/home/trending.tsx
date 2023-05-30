@@ -21,13 +21,14 @@ export function Trending() {
     initialData: [],
     keepPreviousData: true,
   });
-
-  if (isLoading) return <Loading />;
-  if (isError) return <p>Something went wrong</p>;
-
+  
   useEffect(() => {
     dispatch(addTrendingAsync(data));
   }, [data]);
+  
+  if (data.length < 1) return <Loading />;
+  if (isError) return <p>Something went wrong</p>;
 
-  return <Albums albums={albums} title="Trending Albums 🔥" />;
+
+  return <Albums albums={data} title="Trending Albums 🔥" />;
 }

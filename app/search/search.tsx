@@ -12,7 +12,7 @@ export default function Search() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const [searchQuery, setSearchQuery] = useState(query);
-  const [albums, setAlbums]: any[] = useState([]);
+  const [albums, setAlbums] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -84,7 +84,4 @@ export default function Search() {
       )}
     </div>
   );
-}
-function dispatch(arg0: (dispatch: any) => void) {
-  throw new Error("Function not implemented.");
 }

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: { trending: any[]; all: any[] } = {
+const initialState: { trending; all } = {
   trending: [],
   all: [],
 };
@@ -10,11 +9,11 @@ export const albumsSlice = createSlice({
   name: "albums",
   initialState,
   reducers: {
-    addTrendingAlbums: (state, action: PayloadAction<any[]>) => {
+    addTrendingAlbums: (state, action) => {
       state.trending = action.payload;
       state.all = state.all.concat(action.payload);
     },
-    addAlbums: (state, action: PayloadAction<any[]>) => {
+    addAlbums: (state, action) => {
       state.all = state.all.concat(action.payload);
     },
   },
@@ -23,13 +22,13 @@ export const albumsSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addAlbums, addTrendingAlbums } = albumsSlice.actions;
 
-export const addTrendingAsync = (albums: any) => (dispatch: any) => {
+export const addTrendingAsync = (albums) => (dispatch) => {
   setTimeout(() => {
     dispatch(addTrendingAlbums(albums));
   }, 1000);
 };
 
-export const addAsync = (albums: any) => (dispatch: any) => {
+export const addAsync = (albums) => (dispatch) => {
   setTimeout(() => {
     dispatch(addAlbums(albums));
   }, 1000);
